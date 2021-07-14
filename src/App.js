@@ -5,6 +5,8 @@ import Header from "./components/Header/Header";
 
 import classes from "./App.module.css";
 import Navbar from "./components/Navbar/Navbar";
+import UsersContainer from "./components/Users/UsersContainer";
+
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +16,17 @@ function App() {
       <Container maxWidth="lg">
         <div className={classes.page}>
           <Navbar />
+          <div className={classes.wrapper}>
+            <div className={classes.contentWrapper}>
+              <Switch>
+                <Route
+                  path="/"
+                  component={UsersContainer}
+                  className={classes.content}
+                />
+              </Switch>
+            </div>
+          </div>
         </div>
       </Container>
     </BrowserRouter>
