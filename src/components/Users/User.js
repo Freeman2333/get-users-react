@@ -1,6 +1,5 @@
 import React from "react";
 import classes from "./Users.module.css";
-import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -14,7 +13,7 @@ const User = ({ user, userDelete }) => {
     userDelete(id);
   };
   return (
-    <Card>
+    <Card className={classes.user}>
       <CardActionArea>
         <div className={classes.UserLogo}>
           <LogoComponent className={classes.UserLogo} />
