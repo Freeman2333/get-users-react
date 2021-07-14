@@ -19,7 +19,6 @@ export const requestUsers = () => {
 export const userDelete = (id) => {
   return async (dispatch) => {
     const users = await userApi.userDel(id);
-    console.log(users.data);
     dispatch(setUsers(users.data));
   };
 };
