@@ -1,0 +1,26 @@
+.page {
+  display: grid;
+  grid-template-areas: "nav page-content";
+  grid-template-rows: 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.wrapper {
+  padding: 0 20px;
+  grid-area: page-content;
+}
+
+.contentWrapper {
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0 0 3px rgba(156, 146, 146, 0.5);
+
+  min-height: 100vh;
+}
+
+.content {
+  min-height: 100vh;
+}
