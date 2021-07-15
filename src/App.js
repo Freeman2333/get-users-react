@@ -6,6 +6,7 @@ import Header from "./components/Header/Header";
 import classes from "./App.module.css";
 import Navbar from "./components/Navbar/Navbar";
 import UsersContainer from "./components/Users/UsersContainer";
+import CreateUser from "./components/CreateUser/CreateUser";
 
 function App() {
   return (
@@ -19,11 +20,8 @@ function App() {
           <div className={classes.wrapper}>
             <div className={classes.contentWrapper}>
               <Switch>
-                <Route
-                  path="/"
-                  component={UsersContainer}
-                  className={classes.content}
-                />
+                <Route path="/" component={UsersContainer} exact />
+                <Route path="/create-user" component={CreateUser} />
               </Switch>
             </div>
           </div>

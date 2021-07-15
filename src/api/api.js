@@ -11,4 +11,7 @@ export const userApi = {
   userDel(id) {
     return instatnse.delete(`user/${id}`);
   },
+  addUser(user) {
+    return instatnse.post(`users`, user);
+  },
 };

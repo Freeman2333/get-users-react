@@ -22,3 +22,9 @@ export const userDelete = (id) => {
     dispatch(setUsers(users.data));
   };
 };
+
+export const addUser = (user) => {
+  return async (dispatch) => {
+    await userApi.addUser(user);
+  };
+};

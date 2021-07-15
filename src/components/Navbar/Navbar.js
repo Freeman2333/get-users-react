@@ -13,7 +13,7 @@ const Navbar = () => {
         Create user
       </NavLink>
       <NavLink
-        to="/create-user"
+        to="/"
         className={classes.linkItem}
         activeClassName={classes.activeLink}
       >
