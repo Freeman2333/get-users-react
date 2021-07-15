@@ -7,6 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import LogoComponent from "./../common/LogoComponent/LogoComponent";
+import { Link } from "react-router-dom";
 
 const User = ({ user, userDelete }) => {
   const deleteUser = (id) => {
@@ -38,6 +39,11 @@ const User = ({ user, userDelete }) => {
         >
           Delete
         </Button>
+        <Link to={`edit-user/${user.id}`}>
+          <Button size="small" color="primary">
+            Сhange
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );

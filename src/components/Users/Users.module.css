@@ -11,7 +11,10 @@
   margin: 20px;
 }
 
+.linkItem {
+  text-decoration: none;
+}
 
-.linkItem{
-  text-decoration: none
+a {
+  text-decoration: none;
 }

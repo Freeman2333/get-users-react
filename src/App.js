@@ -20,8 +20,9 @@ function App() {
           <div className={classes.wrapper}>
             <div className={classes.contentWrapper}>
               <Switch>
-                <Route path="/" component={UsersContainer} exact />
+                <Route path="/edit-user/:id" component={CreateUser} />
                 <Route path="/create-user" component={CreateUser} />
+                <Route path="/" component={UsersContainer} exact />
               </Switch>
             </div>
           </div>

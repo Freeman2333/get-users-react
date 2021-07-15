@@ -14,4 +14,7 @@ export const userApi = {
   addUser(user) {
     return instatnse.post(`users`, user);
   },
+  updateUser(id, data) {
+    return instatnse.put(`user/${id}`, data);
+  },
 };

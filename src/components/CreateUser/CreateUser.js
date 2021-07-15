@@ -3,21 +3,33 @@ import { Redirect } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import classes from "./CreateUser.module.css";
 import { connect } from "react-redux";
-import { addUser } from "../../redux/actions/actions";
+import { addUser, updateUser, requestUsers } from "../../redux/actions/actions";
 import * as Yup from "yup";
+import { useParams } from "react-router-dom";
+import { getUsers } from "./../../redux/useSelector";
 
-const CreateUser = ({ addUser }) => {
+const CreateUser = ({ addUser, users, updateUser, requestUsers }) => {
   const [isUser, setIsUser] = useState(false);
-
-  if (isUser) {
+  const { id } = useParams();
+  let user = "";
+  if (id) {
+    user = users.find((user) => {
+      return user.id == id;
+    });
+  }
+  if (isUser || !users.length) {
+    setTimeout(requestUsers, 500);
     return <Redirect to={"/"} />;
   }
-
   return (
     <>
-      <h1 className={classes.title}>Create user</h1>
+      <h1 className={classes.title}>{id ? "Edit User" : "Create user"}</h1>
       <Formik
-        initialValues={{ name: "", surname: "", desc: "" }}
+        initialValues={{
+          name: user ? user.name : "",
+          surname: user ? user.surname : "",
+          desc: user ? user.desc : "",
+        }}
         validationSchema={Yup.object({
           name: Yup.string()
             .max(15, "Must be 15 characters or less")
@@ -30,7 +42,7 @@ const CreateUser = ({ addUser }) => {
             .required("Required"),
         })}
         onSubmit={(values, { setSubmitting }) => {
-          addUser(values);
+          id ? updateUser(id, values) : addUser(values);
           setSubmitting(false);
           setIsUser(true);
         }}
@@ -52,4 +64,12 @@ const CreateUser = ({ addUser }) => {
   );
 };
 
-export default connect(null, { addUser })(CreateUser);
+const mapStateToProps = (state) => {
+  return {
+    users: getUsers(state),
+  };
+};
+
+export default connect(mapStateToProps, { addUser, updateUser, requestUsers })(
+  CreateUser
+);

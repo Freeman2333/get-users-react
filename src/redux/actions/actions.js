@@ -26,5 +26,11 @@ export const userDelete = (id) => {
 export const addUser = (user) => {
   return async () => {
     await userApi.addUser(user);
+    requestUsers();
+  };
+};
+export const updateUser = (id, data) => {
+  return async () => {
+    await userApi.updateUser(id, data);
   };
 };

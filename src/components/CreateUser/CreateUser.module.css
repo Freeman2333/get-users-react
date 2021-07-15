@@ -97,7 +97,3 @@ button {
   -webkit-user-select: none;
   user-select: none;
 }
-
-button:hover {
-  background-color: #404958;
-}
