@@ -24,7 +24,7 @@ export const userDelete = (id) => {
 };
 
 export const addUser = (user) => {
-  return async (dispatch) => {
+  return async () => {
     await userApi.addUser(user);
   };
 };
